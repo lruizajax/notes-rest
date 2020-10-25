@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "283e638e-3470-4e25-9568-3caec7492ed3",
+		"name": "notes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a3402e60-eaee-4dc9-8549-003c9a65a8b7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Dj BuxxI ft J Balvin 5\",\n    \"content\": \"Como tu no hay dos - Dj BuxxI ft J Balvin, Jowell y Randy (Remix Oficial)\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/notes",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAll",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "157f28f8-2629-4c74-bd1c-6a615ce616aa",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d7b40e11-f0b9-455b-af0e-b52db96cf6d8",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "localhost:3001/notes/",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"notes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findOne",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/notes/5f2f799173073d3034053cdc",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"notes",
+						"5f2f799173073d3034053cdc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Dj BuxxI ft J Balvin updated\",\n    \"content\": \"Como tu no hay dos - Dj BuxxI ft J Balvin, Jowell y Randy (Remix Oficial) updated\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/notes/5f2f7bda73073d3034053cdf",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"notes",
+						"5f2f7bda73073d3034053cdf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/notes/5f2f84eb73073d3034053ce3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"notes",
+						"5f2f84eb73073d3034053ce3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
